@@ -1,0 +1,52 @@
+$fh-align: (
+  axis: (
+    start: flex-start,
+    center: center,
+    end: flex-end
+  )
+);
+
+@function fh-align-axis($pos) {
+  @return fh-map-get-deep($fh-align, "axis", $pos);
+}
+
+%fh-align-x {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+%fh-align-x-start {
+  justify-content: fh-align-axis(start);
+}
+
+%fh-align-x-center {
+  justify-content: fh-align-axis(center);
+}
+
+%fh-align-x-end {
+  justify-content: fh-align-axis(end);
+}
+
+%fh-align-y {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+%fh-align-y-start {
+  align-items: fh-align-axis(start);
+}
+
+%fh-align-y-center {
+  align-items: fh-align-axis(center);
+}
+
+%fh-align-y-end {
+  align-items: fh-align-axis(end);
+}
+
+@mixin fh-align($axis: "x", $position: "center") {
+  @extend %fh-align-#{$axis};
+  @extend %fh-align-#{$axis}-#{$position};
+}

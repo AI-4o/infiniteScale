@@ -1,0 +1,14 @@
+%fh-bar {
+  @include fh-align(x, start);
+  width: 100%;
+  height: auto;
+
+  &__item {
+    display: flex;
+    width: 100%;
+  }
+}
+
+@mixin fh-bar($options: ()) {
+  @include fh-component(ui-bar, $options);
+}

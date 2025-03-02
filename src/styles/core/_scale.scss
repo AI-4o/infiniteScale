@@ -1,0 +1,93 @@
+$fh-scale: (
+  scale-factor: 0.05,
+  scale-levels: 64,
+  scale-steps: (
+    2xs: 0.67,
+    xs: 0.83,
+    sm: 1.0,
+    md: 1.17,
+    lg: 1.5,
+    xl: 2.0,
+    2xl: 2.67
+  )
+);
+
+@function fh-scale($el) {
+  @return fh-deep-map-get($fh-scale, $el);
+}
+
+@mixin scale-handler($params) {
+
+  $options: map-merge((
+    ctx: "",
+    size: 1,
+    unit: rem,
+    step: "md"
+  ), $params);
+
+  $ctx:  map-get($options, ctx);
+  $step: map-get($options, step);
+  $size: map-get($options, size);
+
+  #{$ctx}[scale='#{$step}'],
+  #{$ctx}.scale--#{$step} {
+    font-size: $size + map-get($options, unit);
+  }
+
+  #{$ctx}[scale-root='#{$step}'],
+  #{$ctx}.scale-root--#{$step} {
+    font-size: $size + rem;
+  }
+
+  #{$ctx}[scale-inherit='#{$step}'],
+  #{$ctx}.scale-inherit--#{$step} {
+    font-size: $size + em;
+  }
+}
+
+@mixin fh-scale-steps($ctx, $unit) {
+  $scale-steps: map-get($fh-scale, scale-steps);
+
+  @each $step in $scale-steps {
+    $idx: index($scale-steps, $step);
+    $key: nth(map-keys($scale-steps), $idx);
+    $options: (
+      ctx: $ctx,
+      unit: $unit,
+      size: map-get($scale-steps, $key),
+      step: $key
+    );
+
+    @include scale-handler($options);
+  }
+}
+
+@mixin fh-scale-levels($ctx, $unit) {
+  $scale-factor: map-get($fh-scale, scale-factor);
+  $scale-levels: map-get($fh-scale, scale-levels);
+
+  @for $idx from 1 through $scale-levels {
+    $options: (
+      ctx: $ctx,
+      unit: $unit,
+      size: $scale-factor * $idx,
+      step: $idx
+    );
+    @include scale-handler($options);
+  }
+}
+
+@mixin fh-scale($target: self, $unit: em) {
+  $ctx: if($target == self, "&", "");
+  @include fh-scale-levels($ctx, $unit);
+  @include fh-scale-steps($ctx, $unit);
+}
+
+@mixin fh-scale-generator() {
+  @include fh-scale(child, rem);
+
+  .is-scalable {
+    font-size: 1em;
+    @include fh-scale(self, em);
+  }
+}

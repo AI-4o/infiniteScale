@@ -1,0 +1,9 @@
+%fh-media {
+  @include fh-align(x, center);
+  width: 1em;
+  color: inherit;
+}
+
+@mixin fh-media($options: ()) {
+  @include fh-component(ui-media, $options);
+}

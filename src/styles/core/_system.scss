@@ -1,0 +1,17 @@
+$fh-system: (
+  system-env : 'dev',
+  system-selector : "class",
+  system-prefix: (
+    root : "fh-",
+    components : "c-",
+    rules : "r-",
+    qa : "q-",
+    hacks : "h-",
+    utils : "u-",
+    theme: "t-"
+  )
+);
+
+@function fh-system($el) {
+  @return fh-deep-map-get($fh-system, $el);
+}

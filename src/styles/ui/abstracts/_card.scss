@@ -1,0 +1,16 @@
+%fh-card {
+  @include fh-align(y, center);
+  border-radius: 0.33em;
+  background-color: white;
+  color: $fh-skin-color-default-fg;
+  box-shadow: $fh-skin-shadows-default-fg;
+
+  .#{fh-get(ui-bar)},
+  .#{fh-get(ui-content)} {
+    padding: 1em;
+  }
+}
+
+@mixin fh-card($options: ()) {
+  @include fh-component(ui-card, $options);
+}

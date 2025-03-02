@@ -1,0 +1,7 @@
+%fh-content {
+  content: '';
+}
+
+@mixin fh-content($options: ()) {
+  @include fh-component(ui-content, $options);
+}

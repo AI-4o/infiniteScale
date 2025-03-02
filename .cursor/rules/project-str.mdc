@@ -1,21 +1,22 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
 {
   "projectName": "infinite-scale",
   "projectType": "Vue.js",
-  "vueVersion": "2.x",
+  "vueVersion": "3.x",
   "description": "A Vue.js based application with a comprehensive component structure",
   "structure": {
     "root": {
       "description": "Project root containing configuration files and top-level directories",
       "configFiles": [
-        "package.json",
-        ".editorconfig",
-        ".gitignore",
-        "vue.config.js"
+        "package.json - Project configuration and dependencies",
+        ".editorconfig - Editor configuration for consistent coding style",
+        ".gitignore - Files and directories excluded from version control",
+        "vite.config.js - Vite build tool configuration",
+        "index.html - Main HTML entry point"
       ]
     },
     "src": {
@@ -27,11 +28,11 @@ alwaysApply: true
         "components": {
           "description": "Reusable Vue components",
           "contents": [
-            "base-cmp.vue - Base component template",
-            "button-cmp.vue - Reusable button component",
-            "card-cmp.vue - Card container component",
-            "media-cmp.vue - Media display component",
-            "text-cmp.vue - Text display component"
+            "Base.vue - Base component template",
+            "Button.vue - Reusable button component",
+            "Card.vue - Card container component",
+            "Media.vue - Media display component",
+            "Text.vue - Text display component"
           ]
         },
         "constants": {
@@ -45,10 +46,6 @@ alwaysApply: true
         },
         "mixins": {
           "description": "Vue mixins for shared component functionality"
-        },
-        "router": {
-          "description": "Vue Router configuration for application routing",
-          "mainFile": "index.js"
         },
         "services": {
           "description": "API services and external integrations"
@@ -64,7 +61,105 @@ alwaysApply: true
           ]
         },
         "styles": {
-          "description": "Global styles, variables, and themes"
+          "description": "Global styles, variables, and themes - Core architecture of the application",
+          "organization": "The styles follow a modular architecture with a clear separation between core functionality and UI-specific styles",
+          "subfolders": {
+            "core": {
+              "description": "Core styles, variables, and utility functions that power the design system",
+              "mainFiles": [
+                "index.scss - Main entry point that imports all core styles",
+                "_align.scss - Alignment utilities and rules",
+                "_layout.scss - Layout-related styles and grid system",
+                "_level.scss - Level management for z-index and stacking",
+                "_queries.scss - Media query mixins and breakpoint definitions",
+                "_scale.scss - Scale system for consistent sizing",
+                "_selector.scss - Selector utilities and patterns",
+                "_skin.scss - Visual styling like colors, borders, shadows",
+                "_system.scss - Core system configuration",
+                "_ui.scss - UI system variables and defaults"
+              ],
+              "subfolders": {
+                "tools": {
+                  "description": "Helper functions, mixins, and tools for the style system",
+                  "contents": [
+                    "index.scss - Entry point for all tools",
+                    "_maps.scss - SASS map utilities and functions",
+                    "_models.scss - Design model definitions",
+                    "_strings.scss - String manipulation functions",
+                    "_units.scss - Unit conversion and calculation utilities"
+                  ]
+                }
+              }
+            },
+            "ui": {
+              "description": "UI-specific styles organized by purpose and function",
+              "mainFiles": [
+                "index.scss - Main entry point that imports all UI styles"
+              ],
+              "subfolders": {
+                "abstracts": {
+                  "description": "Abstract patterns and reusable UI components",
+                  "contents": [
+                    "index.scss - Imports all abstract components",
+                    "_bar.scss - Bar component styles",
+                    "_belt.scss - Belt/container component styles",
+                    "_button.scss - Button component styles",
+                    "_card.scss - Card component styles",
+                    "_content.scss - Content container styles",
+                    "_media.scss - Media component styles",
+                    "_text.scss - Text component styles"
+                  ]
+                },
+                "base": {
+                  "description": "Base styles for HTML elements and fundamental patterns",
+                  "contents": [
+                    "index.scss - Imports all base styles",
+                    "_elements.scss - HTML element base styles",
+                    "_generics.scss - Generic/global styles",
+                    "_interactive.scss - Interactive element styles",
+                    "_semantics.scss - Semantic HTML element styles"
+                  ]
+                },
+                "utils": {
+                  "description": "Utility classes for common styling needs",
+                  "contents": [
+                    "index.scss - Imports all utilities",
+                    "_scale.scss - Scale-related utility classes",
+                    "_text.scss - Text-related utility classes"
+                  ]
+                },
+                "rules": {
+                  "description": "Specific style rules and overrides",
+                  "contents": [
+                    "index.scss - Imports all rule styles"
+                  ]
+                },
+                "qa": {
+                  "description": "Quality assurance styles for debugging and testing",
+                  "contents": [
+                    "index.scss - Imports all QA styles"
+                  ]
+                },
+                "hacks": {
+                  "description": "CSS hacks and fixes for specific issues",
+                  "contents": [
+                    "index.scss - Imports all hack styles"
+                  ]
+                },
+                "fx": {
+                  "description": "Animation and effects styles",
+                  "contents": []
+                },
+                "vendor": {
+                  "description": "Third-party style overrides and integrations",
+                  "contents": []
+                }
+              }
+            }
+          },
+          "mainFiles": [
+            "main.scss - Main stylesheet entry point that imports core and UI styles"
+          ]
         },
         "views": {
           "description": "Page-level Vue components organized by feature",
@@ -78,37 +173,63 @@ alwaysApply: true
       },
       "mainFiles": [
         "App.vue - Root Vue component",
-        "main.js - Application entry point"
+        "main.js - Application entry point",
+        "child-component.vue - Example child component",
+        "parent-component.vue - Example parent component",
+        "ChildComp.vue - Another child component example",
+        "example1.vue - Example component",
+        "example2.vue - Example component",
+        "example3.vue - Example component"
+      ]
+    },
+    "public": {
+      "description": "Public static assets that are served directly",
+      "contents": [
+        "favicon.ico - Site favicon",
+        "index.html - HTML template"
       ]
     }
   },
   "dependencies": {
     "frontend": [
-      "vue",
-      "vue-router",
-      "vuex",
-      "bootstrap",
+      "vue 3.x",
+      "vue-router 4.x",
+      "vuex 4.x",
+      "bootstrap 5.x",
       "axios",
       "fontawesome",
-      "moment",
-      "swiper",
-      "vuelidate"
+      "vuelidate",
+      "vue-the-mask",
+      "vue-types"
     ],
     "development": [
-      "vue-cli",
+      "vite",
       "eslint",
-      "sass/less/stylus processors"
+      "sass"
     ]
   },
   "patterns": {
     "stateManagement": "Vuex with actions, mutations, and getters",
-    "routing": "Vue Router with path-based navigation",
-    "componentNaming": "Component files use '-cmp' suffix",
-    "styling": "Supports multiple styling preprocessors (SCSS, Less, Stylus)"
+    "componentNaming": "Component files use '-cmp' suffix for reusable components",
+    "styling": "SCSS for styling preprocessor with a detailed architecture that separates core functionality from UI components"
+  },
+  "stylesArchitecture": {
+    "description": "The application uses a sophisticated SCSS architecture with a focus on modularity and reusability",
+    "philosophy": "Separation of concerns between core functionality (variables, mixins, functions) and UI-specific styles",
+    "importOrder": "main.scss → core/index.scss & ui/index.scss → individual module files",
+    "namespacePrefix": "Most SCSS functions and mixins use 'fh-' prefix (e.g., fh-map-debug, fh-deep-map-merge)",
+    "keyFeatures": [
+      "Comprehensive tools and utility functions in core/tools",
+      "Abstraction of common UI patterns in ui/abstracts",
+      "Separation of base styles from utility classes",
+      "Dedicated sections for hacks, QA, and vendor styles"
+    ]
   },
   "bestPractices": {
     "fileOrganization": "Organized by feature and functionality",
     "componentStructure": "Single file components with <template>, <script>, <style> sections",
-    "storeDesign": "Centralized store with modular organization"
+    "storeDesign": "Centralized store with modular organization",
+    "buildTool": "Vite for fast development and building",
+    "stylingApproach": "Modular SCSS with separation of core and UI styles"
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <base-cmp
+  <BaseComponent
     :tagName="tagName || tag"
     :role="role"
     :class="[classes]"
@@ -18,18 +18,19 @@
       <slot name="after"></slot>
     </template>
 
-  </base-cmp>
+  </BaseComponent>
 </template>
 
 <script>
 
   import VueTypes from 'vue-types'
-  import BaseCmp from './base-cmp'
+  import Base from './Base.vue'
 
   export default {
     name: 'ButtonCmp',
-    extends: BaseCmp,
-    components: {},
+    components: {
+      BaseComponent: Base
+    },
     data () {
       return {}
     },
@@ -37,7 +38,11 @@
       tag: VueTypes.string.def('button'),
       tagName: VueTypes.string.def('button'),
       role: VueTypes.string.def('button'),
-      url: VueTypes.string
+      url: VueTypes.string,
+      classes: VueTypes.oneOfType([
+        VueTypes.string,
+        VueTypes.array
+      ]).def('')
     },
     computed: {
       extraClasses () {
@@ -47,8 +52,7 @@
         }
       },
       link () {
-        console.warn(this.tagName, this.url);
-        return this.tagName || this.tag === 'a' ? this.url : null
+        return (this.tagName || this.tag) === 'a' ? this.url : null
       },
       hasText() {
         return !!this.text

@@ -1,5 +1,5 @@
 <template>
-  <base-cmp
+  <Base
     :tagName="tagName"
     :class="[classes]"
   >
@@ -28,12 +28,12 @@
       </footer>
     </template>
 
-  </base-cmp>
+  </Base>
 </template>
 
 <script>
   import VueTypes from 'vue-types'
-  import BaseCmp from './base-cmp'
+  import BaseCmp from './Base.vue'
 
   export default {
     name: 'CardCmp',

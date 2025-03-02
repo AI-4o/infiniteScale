@@ -1,12 +1,14 @@
+<script setup>
+import Home from "./views/home/Home.vue";
+import ParentComp from "./ParentComp.vue";
+</script>
+
 <template>
-  <div id="app-root" role="application">
-    <home-view/>
+  <div id="app-root">
+    <Home />
+    <ParentComp />
   </div>
 </template>
-
-<script setup>
-import HomeView from "./views/home/index.vue";
-</script>
 
 <style lang="scss" scoped>
 #app-root {

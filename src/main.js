@@ -4,7 +4,7 @@ import App from "./App.vue";
 import "./styles/main.scss";
 
 // Components
-import BaseCmp from "./components/base-cmp.vue";
+import BaseCmp from "./components/Base.vue";
 
 const app = createApp(App);
 

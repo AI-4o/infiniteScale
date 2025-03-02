@@ -3,9 +3,9 @@
 
     <section>
 
-      <button-cmp tag="a" url="/hello" scale="15">
+      <Button tag="a" url="/hello" scale="15">
         <template #before>
-          <media-cmp>
+          <Media>
             <svg width="100%" height="100%" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
@@ -48,96 +48,96 @@
                 </g>
               </g>
             </svg>
-          </media-cmp>
+          </Media>
         </template>
 
         <template #content>
-          <text-cmp>Button Inherit</text-cmp>
+          <Text>Button Inherit</Text>
         </template>
 
-      </button-cmp>
+      </Button>
 
     </section>
 
     <section>
 
-      <button-cmp scale="20">
+      <Button scale="20">
 
         <template #content>
-          <text-cmp>Button Inherit</text-cmp>
+          <Text>Button Inherit</Text>
         </template>
 
         <template #after>
-          <media-cmp>
+          <Media>
             <svg width="100%" height="100%" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
               <use xlink:href="#icon-cog"></use>
             </svg>
-          </media-cmp>
+          </Media>
         </template>
-      </button-cmp>
+      </Button>
 
     </section>
 
     <section>
 
 
-      <card-cmp>
+      <Card>
         <template #before>
           ciao
         </template>
 
         <template #after>
-          <button-cmp tagName="a" href="/hello" scale="25">
+          <Button tagName="a" href="/hello" scale="25">
             <template #before>
-              <media-cmp>
+              <Media>
                 <img src="//pbs.twimg.com/profile_images/701940186838532096/TarzXAkb.jpg" alt="">
-              </media-cmp>
+              </Media>
             </template>
 
             <template #content>
-              <text-cmp>Button Inherit</text-cmp>
+              <Text>Button Inherit</Text>
             </template>
-          </button-cmp>
+          </Button>
 
-          <card-cmp scale="10">
+          <Card scale="10">
             <template #before>
-              <card-cmp scale="10">
+              <Card scale="10">
             <template #before>
               ciao
             </template>
 
             <template #after>
-              <button-cmp tagName="a" href="/hello" scale="25">
+              <Button tagName="a" href="/hello" scale="25">
                 <template #before>
-                  <media-cmp>
+                  <Media>
                     <img src="//pbs.twimg.com/profile_images/701940186838532096/TarzXAkb.jpg" alt="">
-                  </media-cmp>
+                  </Media>
                 </template>
 
                 <template #content>
-                  <text-cmp>Button Inherit</text-cmp>
+                  <Text>Button Inherit</Text>
                 </template>
-              </button-cmp>
+              </Button>
             </template>
-          </card-cmp>
+          </Card>
             </template>
 
             <template #after>
-              <button-cmp tagName="a" href="/hello" scale="25">
+              <Button tagName="a" href="/hello" scale="25">
                 <template #before>
-                  <media-cmp>
+                  <Media>
                     <img src="//pbs.twimg.com/profile_images/701940186838532096/TarzXAkb.jpg" alt="">
-                  </media-cmp>
+                  </Media>
                 </template>
 
                 <template #content>
-                  <text-cmp>Button Inherit</text-cmp>
+                  <Text>Button Inherit</Text>
                 </template>
-              </button-cmp>
+              </Button>
             </template>
-          </card-cmp>
+          </Card>
         </template>
-      </card-cmp>
+      </Card>
     </section>
 
     <svg
@@ -463,10 +463,10 @@
 </template>
 
 <script>
-  import MediaCmp from '../../components/media-cmp'
-  import TextCmp from '../../components/text-cmp'
-  import ButtonCmp from '../../components/button-cmp'
-  import CardCmp from '../../components/card-cmp'
+  import MediaCmp from '../../components/Media.vue'
+  import TextCmp from '../../components/Text.vue'
+  import ButtonCmp from '../../components/Button.vue'
+  import CardCmp from '../../components/Card.vue'
 
   export default {
     name: 'InfiniteScaleCmp',

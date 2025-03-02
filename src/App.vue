@@ -4,15 +4,8 @@
   </div>
 </template>
 
-<script>
-import HomeView from "./views/home";
-
-export default {
-  name: "App",
-  components: {
-    HomeView
-  }
-};
+<script setup>
+import HomeView from "./views/home/index.vue";
 </script>
 
 <style lang="scss" scoped>

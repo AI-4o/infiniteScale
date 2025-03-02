@@ -1,0 +1,114 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+{
+  "projectName": "infinite-scale",
+  "projectType": "Vue.js",
+  "vueVersion": "2.x",
+  "description": "A Vue.js based application with a comprehensive component structure",
+  "structure": {
+    "root": {
+      "description": "Project root containing configuration files and top-level directories",
+      "configFiles": [
+        "package.json",
+        ".editorconfig",
+        ".gitignore",
+        "vue.config.js"
+      ]
+    },
+    "src": {
+      "description": "Main source code directory",
+      "subfolders": {
+        "assets": {
+          "description": "Static assets like images, fonts, etc."
+        },
+        "components": {
+          "description": "Reusable Vue components",
+          "contents": [
+            "base-cmp.vue - Base component template",
+            "button-cmp.vue - Reusable button component",
+            "card-cmp.vue - Card container component",
+            "media-cmp.vue - Media display component",
+            "text-cmp.vue - Text display component"
+          ]
+        },
+        "constants": {
+          "description": "Application constants and configuration values"
+        },
+        "fixtures": {
+          "description": "Mock data for development and testing"
+        },
+        "helpers": {
+          "description": "Helper functions and utilities"
+        },
+        "mixins": {
+          "description": "Vue mixins for shared component functionality"
+        },
+        "router": {
+          "description": "Vue Router configuration for application routing",
+          "mainFile": "index.js"
+        },
+        "services": {
+          "description": "API services and external integrations"
+        },
+        "store": {
+          "description": "Vuex store for state management",
+          "contents": [
+            "actions.js - Vuex actions for async operations",
+            "getters.js - Computed state properties",
+            "index.js - Store configuration and initialization",
+            "mutation_types.js - Constants for mutation types",
+            "mutations.js - State mutation handlers"
+          ]
+        },
+        "styles": {
+          "description": "Global styles, variables, and themes"
+        },
+        "views": {
+          "description": "Page-level Vue components organized by feature",
+          "subfolders": [
+            "company - Company related pages",
+            "contest - Contest related pages",
+            "demo - Demo pages",
+            "home - Home page and related components"
+          ]
+        }
+      },
+      "mainFiles": [
+        "App.vue - Root Vue component",
+        "main.js - Application entry point"
+      ]
+    }
+  },
+  "dependencies": {
+    "frontend": [
+      "vue",
+      "vue-router",
+      "vuex",
+      "bootstrap",
+      "axios",
+      "fontawesome",
+      "moment",
+      "swiper",
+      "vuelidate"
+    ],
+    "development": [
+      "vue-cli",
+      "eslint",
+      "sass/less/stylus processors"
+    ]
+  },
+  "patterns": {
+    "stateManagement": "Vuex with actions, mutations, and getters",
+    "routing": "Vue Router with path-based navigation",
+    "componentNaming": "Component files use '-cmp' suffix",
+    "styling": "Supports multiple styling preprocessors (SCSS, Less, Stylus)"
+  },
+  "bestPractices": {
+    "fileOrganization": "Organized by feature and functionality",
+    "componentStructure": "Single file components with <template>, <script>, <style> sections",
+    "storeDesign": "Centralized store with modular organization"
+  }
+}

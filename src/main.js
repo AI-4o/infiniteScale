@@ -1,15 +1,14 @@
-import Vue from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
 // Styles
 import "./styles/main.scss";
 
 // Components
-import BaseCmp from "./components/base-cmp"
+import BaseCmp from "./components/base-cmp.vue";
 
-Vue.component("BaseCmp", BaseCmp)
+const app = createApp(App);
 
-Vue.config.productionTip = false;
+// Register global components
+app.component("BaseCmp", BaseCmp);
 
-new Vue({
-  render: h => h(App)
-}).$mount("#app");
+app.mount("#app");

@@ -1,6 +1,5 @@
 <script setup>
 import Home from "./views/home/Home.vue";
-import ParentComp from "./ParentComp.vue";
 </script>
 
 <template>
